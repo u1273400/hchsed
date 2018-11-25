@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="build" default="dist">
+    <target name="clean" description="Delete generated files">
+    </target>
+    <target name="compile" description="Compile code">
+    </target>
+    <target name="dist" depends="compile" description="Build distributable">
+      <scp file="john:k_-_monger@gaia.hud.ac.uk:/home/john/Dropbox/rtmp/src/cs/core/wbible/bin/Debug/netcoreapp1.1/wbible.db" todir="../wbiblecore/bin/Debug/netcoreapp1.1" trust="true"/>
+    </target>
+    <target name="down" depends="compile" description="Build distributable">
+      <scp file="john:k_-_monger@gaia.hud.ac.uk:/home/john/Dropbox/rtmp/src/cs/core/wbible/bin/Debug/netcoreapp1.1/wbible.db" todir="../wbiblecore" trust="true"/>
+    </target>
+    <target name="up" depends="compile" description="Build distributable">
+      <scp file="../wbiblecore/bin/Debug/netcoreapp1.1/wbible.db" todir="john:k_-_monger@gaia.hud.ac.uk:/home/john/Dropbox/rtmp/src/cs/core/wbible/bin/Debug/netcoreapp1.1" password="k_-_monger" trust="true"/>
+    </target>
+</project>
